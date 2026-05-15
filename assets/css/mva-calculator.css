@@ -1,0 +1,1098 @@
+/* ==========================================================================
+   Dog Bite Settlement Calculator — Styles
+   Light theme: bg #f8f9fc, card #ffffff, header #043144, accent #8D1C34
+   All properties use !important to prevent Elementor overrides.
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box !important;
+}
+
+#mva-calculator-root {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  color: #1e293b !important;
+  background: #ffff !important;
+  min-height: 500px !important;
+  padding: 0 !important;
+  max-width: 780px !important;
+  margin-inline: auto !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Loading */
+.mva-loading {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 300px !important;
+}
+
+.mva-spinner {
+  width: 36px !important;
+  height: 36px !important;
+  border: 3px solid #e2e8f0 !important;
+  border-top-color: #8D1C34 !important;
+  border-radius: 50% !important;
+  animation: mva-spin 0.8s linear infinite !important;
+}
+
+@keyframes mva-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Header */
+.mva-header {
+  background: #043144 !important;
+  border-bottom: 1px solid rgba(141, 28, 52, 0.3) !important;
+  padding: 22px 28px !important;
+  border-radius: 16px 16px 0 0 !important;
+}
+
+.mva-header-inner {
+  max-width: 780px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+}
+
+.mva-header-icon {
+  width: 46px !important;
+  height: 46px !important;
+  border-radius: 50% !important;
+  background: #8D1C34 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 20px !important;
+  flex-shrink: 0 !important;
+}
+
+.mva-header-title {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 19px !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  line-height: 1.2 !important;
+}
+
+.mva-header-sub {
+  font-size: 12px !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  margin-top: 2px !important;
+}
+
+.mva-header-disclaimer {
+  margin-left: auto !important;
+  text-align: right !important;
+  font-size: 11px !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  flex-shrink: 0 !important;
+}
+
+.mva-header-disclaimer strong {
+  display: block !important;
+  color: #f87171 !important;
+  font-size: 10px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+/* Main body */
+.mva-body {
+  background-color: #ffff;
+  max-width: 780px !important;
+  margin: 0 auto !important;
+  padding-top: 20px !important;
+  border-radius: 0 0 16px 16px !important;
+}
+
+/* Step Indicators */
+.mva-steps-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin-bottom: 28px !important;
+}
+
+.mva-steps-arrow {
+  width: 30px !important;
+  height: 54px !important;
+  flex-shrink: 0 !important;
+  border-radius: 8px !important;
+  border: 1px solid #e2e8f0 !important;
+  background: #ffffff !important;
+  color: #64748b !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 18px !important;
+  line-height: 1 !important;
+  transition: all 0.15s !important;
+  padding: 0 !important;
+}
+
+.mva-steps-arrow:hover:not(:disabled) {
+  border-color: #8D1C34 !important;
+  color: #8D1C34 !important;
+  background: rgba(141, 28, 52, 0.08) !important;
+}
+
+.mva-steps-arrow:disabled {
+  opacity: 0.2 !important;
+  cursor: not-allowed !important;
+}
+
+.mva-steps {
+  flex: 1 !important;
+  display: flex !important;
+  gap: 6px !important;
+  overflow: hidden !important;
+}
+
+@keyframes mva-slide-in-left {
+  from {
+    transform: translateX(28px);
+    opacity: 0.3;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes mva-slide-in-right {
+  from {
+    transform: translateX(-28px);
+    opacity: 0.3;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.mva-steps-anim-left {
+  animation: mva-slide-in-left 0.22s ease-out !important;
+}
+
+.mva-steps-anim-right {
+  animation: mva-slide-in-right 0.22s ease-out !important;
+}
+
+.mva-step-btn {
+  flex: 1 !important;
+  padding: 9px 4px !important;
+  border-radius: 8px !important;
+  border: 1px solid #e2e8f0 !important;
+  background: #ffffff !important;
+  cursor: pointer !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 3px !important;
+  transition: all 0.15s !important;
+  overflow: hidden !important;
+}
+
+.mva-step-btn.active {
+  border-color: #8D1C34 !important;
+  background: rgba(141, 28, 52, 0.08) !important;
+}
+
+.mva-step-btn.done {
+  border-color: rgba(141, 28, 52, 0.3) !important;
+  background: rgba(141, 28, 52, 0.04) !important;
+}
+
+.mva-step-icon {
+  font-size: 17px !important;
+}
+
+.mva-step-label {
+  font-size: 10px !important;
+  color: #94a3b8 !important;
+  font-weight: 400 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  max-width: 100% !important;
+  padding: 0 2px !important;
+}
+
+.mva-step-btn.active .mva-step-label {
+  color: #8D1C34 !important;
+  font-weight: 700 !important;
+}
+
+.mva-step-btn.done .mva-step-label {
+  color: #64748b !important;
+}
+
+/* Card */
+.mva-card {
+  background: #ffffff !important;
+  border-radius: 16px !important;
+  padding: 30px 32px !important;
+  margin-bottom: 20px !important;
+}
+
+/* Progress bar */
+.mva-progress-bar-wrap {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 26px !important;
+  gap: 12px !important;
+}
+
+.mva-progress-label {
+  font-size: 11px !important;
+  color: #94a3b8 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1em !important;
+  white-space: nowrap !important;
+}
+
+.mva-progress-track {
+  flex: 1 !important;
+  height: 4px !important;
+  background: #e2e8f0 !important;
+  border-radius: 2px !important;
+  overflow: hidden !important;
+}
+
+.mva-progress-fill {
+  height: 100% !important;
+  background: #8D1C34 !important;
+  border-radius: 2px !important;
+  transition: width 0.3s ease !important;
+}
+
+.mva-progress-pct {
+  font-size: 11px !important;
+  color: #8D1C34 !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+}
+
+/* Step headings */
+.mva-step-title {
+  margin: 0 0 5px 0 !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 21px !important;
+  font-weight: 700 !important;
+  color: #1e293b !important;
+}
+
+.mva-step-desc {
+  margin: 0 0 22px 0 !important;
+  font-size: 13px !important;
+  color: #64748b !important;
+  line-height: 1.5 !important;
+}
+
+/* Form elements */
+.mva-field {
+  margin-bottom: 16px !important;
+}
+
+.mva-label {
+  display: block !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: #64748b !important;
+  margin-bottom: 6px !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+}
+
+.mva-input,
+.mva-textarea,
+.mva-select {
+  width: 100% !important;
+  padding: 11px 13px !important;
+  background: #f1f5f9 !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+  color: #1e293b !important;
+  font-size: 14px !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  outline: none !important;
+  transition: border-color 0.2s !important;
+}
+
+.mva-input:focus,
+.mva-textarea:focus,
+.mva-select:focus {
+  border-color: #8D1C34 !important;
+}
+
+.mva-textarea {
+  resize: vertical !important;
+  min-height: 80px !important;
+}
+
+.mva-select {
+  cursor: pointer !important;
+}
+
+.mva-select option {
+  background: #ffffff !important;
+}
+
+/* Radio / button group */
+.mva-radio-group {
+  display: flex !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+}
+
+.mva-radio-btn {
+  padding: 8px 16px !important;
+  border-radius: 8px !important;
+  border: 1px solid #e2e8f0 !important;
+  background: #f1f5f9 !important;
+  color: #475569 !important;
+  font-size: 13px !important;
+  cursor: pointer !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 500 !important;
+  transition: all 0.15s !important;
+}
+
+.mva-radio-btn.selected {
+  border-color: #8D1C34 !important;
+  background: rgba(141, 28, 52, 0.1) !important;
+  color: #8D1C34 !important;
+  font-weight: 700 !important;
+}
+
+/* Law info box (Step 1) */
+.mva-law-box {
+  padding: 12px 15px !important;
+  background: rgba(141, 28, 52, 0.06) !important;
+  border: 1px solid rgba(141, 28, 52, 0.2) !important;
+  border-radius: 8px !important;
+  margin-bottom: 14px !important;
+}
+
+.mva-law-system {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: #8D1C34 !important;
+  margin-bottom: 4px !important;
+}
+
+.mva-law-note {
+  font-size: 12px !important;
+  color: #64748b !important;
+  line-height: 1.5 !important;
+}
+
+/* Location buttons (Step 2) */
+.mva-location-group {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  margin-bottom: 16px !important;
+}
+
+.mva-location-btn {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 13px 16px !important;
+  border-radius: 10px !important;
+  border: 1px solid #e2e8f0 !important;
+  background: #f1f5f9 !important;
+  cursor: pointer !important;
+  text-align: left !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  transition: all 0.15s !important;
+}
+
+.mva-location-btn.selected {
+  border-color: #8D1C34 !important;
+  background: rgba(141, 28, 52, 0.08) !important;
+}
+
+.mva-loc-icon {
+  font-size: 20px !important;
+  flex-shrink: 0 !important;
+}
+
+.mva-loc-label {
+  font-size: 14px !important;
+  color: #475569 !important;
+  font-weight: 500 !important;
+}
+
+.mva-location-btn.selected .mva-loc-label {
+  color: #8D1C34 !important;
+  font-weight: 700 !important;
+}
+
+/* Location loading */
+.mva-loc-loading {
+  padding: 18px !important;
+  background: #f1f5f9 !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  margin-bottom: 16px !important;
+}
+
+.mva-loc-loading-text {
+  font-size: 13px !important;
+  color: #94a3b8 !important;
+  margin-bottom: 10px !important;
+}
+
+.mva-loc-loading-bar {
+  height: 3px !important;
+  background: #e2e8f0 !important;
+  border-radius: 2px !important;
+  overflow: hidden !important;
+}
+
+.mva-loc-loading-fill {
+  height: 100% !important;
+  width: 60% !important;
+  background: #8D1C34 !important;
+  border-radius: 2px !important;
+  animation: mva-loc-pulse 1.5s ease-in-out infinite !important;
+}
+
+@keyframes mva-loc-pulse {
+
+  0%,
+  100% {
+    opacity: 0.4;
+    width: 40%;
+  }
+
+  50% {
+    opacity: 1;
+    width: 80%;
+  }
+}
+
+/* Location analysis card */
+.mva-loc-analysis-card {
+  padding: 18px !important;
+  background: #f8f9fc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  margin-bottom: 16px !important;
+}
+
+.mva-loc-analysis-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  margin-bottom: 14px !important;
+}
+
+.mva-loc-analysis-title {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: #1e293b !important;
+}
+
+.mva-loc-analysis-sub {
+  font-size: 12px !important;
+  color: #94a3b8 !important;
+  margin-top: 2px !important;
+}
+
+.mva-risk-badge {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  padding: 3px 10px !important;
+  border-radius: 20px !important;
+  border: 1px solid !important;
+  white-space: nowrap !important;
+}
+
+.mva-risk-low {
+  color: #8D1C34 !important;
+  border-color: rgba(141, 28, 52, 0.4) !important;
+}
+
+.mva-risk-medium {
+  color: #d97706 !important;
+  border-color: rgba(217, 119, 6, 0.4) !important;
+}
+
+.mva-risk-high {
+  color: #16a34a !important;
+  border-color: rgba(22, 163, 74, 0.4) !important;
+}
+
+.mva-loc-analysis-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 10px !important;
+  margin-bottom: 12px !important;
+}
+
+.mva-loc-cell {
+  padding: 9px 12px !important;
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+}
+
+.mva-loc-cell-label {
+  font-size: 10px !important;
+  color: #94a3b8 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+.mva-loc-cell-value {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: #1e293b !important;
+  margin-top: 4px !important;
+}
+
+.mva-loc-analysis-text {
+  font-size: 13px !important;
+  color: #64748b !important;
+  line-height: 1.6 !important;
+}
+
+.mva-loc-defendants {
+  margin-top: 10px !important;
+  padding: 9px 12px !important;
+  background: rgba(37, 99, 235, 0.06) !important;
+  border: 1px solid rgba(37, 99, 235, 0.2) !important;
+  border-radius: 8px !important;
+  font-size: 13px !important;
+  color: #2563eb !important;
+}
+
+/* Info boxes */
+.mva-info-box {
+  padding: 11px 14px !important;
+  border-radius: 8px !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 14px !important;
+}
+
+.mva-info-warning {
+  background: rgba(141, 28, 52, 0.06) !important;
+  border: 1px solid rgba(141, 28, 52, 0.2) !important;
+  color: #8D1C34 !important;
+}
+
+.mva-info-gold {
+  background: rgba(184, 146, 42, 0.08) !important;
+  border: 1px solid rgba(184, 146, 42, 0.3) !important;
+  color: #92740d !important;
+}
+
+.mva-info-neutral {
+  background: #f1f5f9 !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #64748b !important;
+}
+
+/* Section divider */
+.mva-section-divider {
+  border-top: 1px solid #e2e8f0 !important;
+  padding-top: 16px !important;
+  margin: 18px 0 12px !important;
+}
+
+.mva-section-divider-label {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: #94a3b8 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+}
+
+/* Scar location grid */
+.mva-scar-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 8px !important;
+  margin-bottom: 16px !important;
+}
+
+.mva-scar-btn {
+  padding: 11px 12px !important;
+  border-radius: 10px !important;
+  border: 1px solid #e2e8f0 !important;
+  background: #f1f5f9 !important;
+  cursor: pointer !important;
+  text-align: left !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  transition: all 0.15s !important;
+}
+
+.mva-scar-btn.selected {
+  border-color: #8D1C34 !important;
+  background: rgba(141, 28, 52, 0.08) !important;
+}
+
+.mva-scar-btn-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.mva-scar-btn-label {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #475569 !important;
+}
+
+.mva-scar-btn.selected .mva-scar-btn-label {
+  color: #8D1C34 !important;
+}
+
+.mva-scar-bonus {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  padding: 2px 7px !important;
+  border: 1px solid rgba(141, 28, 52, 0.3) !important;
+  border-radius: 12px !important;
+}
+
+/* Nav buttons */
+.mva-nav {
+  display: flex !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  margin-top: 28px !important;
+}
+
+.mva-btn-back {
+  padding: 11px 26px !important;
+  border-radius: 10px !important;
+  border: 1px solid #cbd5e1 !important;
+  background: transparent !important;
+  color: #64748b !important;
+  cursor: pointer !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  transition: all 0.15s !important;
+}
+
+.mva-btn-back:hover {
+  border-color: #94a3b8 !important;
+  color: #1e293b !important;
+}
+
+.mva-btn-back:disabled {
+  opacity: 0.3 !important;
+  cursor: not-allowed !important;
+}
+
+.mva-btn-next {
+  padding: 11px 28px !important;
+  border-radius: 10px !important;
+  border: none !important;
+  background: #8D1C34 !important;
+  color: #ffffff !important;
+  cursor: pointer !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.02em !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  transition: opacity 0.15s, box-shadow 0.15s !important;
+  box-shadow: 0 4px 14px rgba(141, 28, 52, 0.35) !important;
+}
+
+.mva-btn-next:hover {
+  opacity: 0.88 !important;
+  box-shadow: 0 6px 20px rgba(141, 28, 52, 0.5) !important;
+}
+
+/* Lead gate */
+.mva-lead-form input {
+  width: 100% !important;
+  padding: 11px 13px !important;
+  background: #f1f5f9 !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+  color: #1e293b !important;
+  font-size: 14px !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  outline: none !important;
+  margin-bottom: 14px !important;
+  transition: border-color 0.2s !important;
+}
+
+.mva-lead-form input:focus {
+  border-color: #8D1C34 !important;
+}
+
+.mva-consent-text {
+  font-size: 11px !important;
+  color: #94a3b8 !important;
+  margin-bottom: 22px !important;
+  line-height: 1.6 !important;
+}
+
+/* Results */
+.mva-result-header {
+  margin-bottom: 24px !important;
+}
+
+.mva-result-state {
+  font-size: 13px !important;
+  color: #94a3b8 !important;
+  margin-top: 3px !important;
+}
+
+.mva-edit-btn {
+  padding: 7px 14px !important;
+  border-radius: 8px !important;
+  border: 1px solid #e2e8f0 !important;
+  background: transparent !important;
+  color: #64748b !important;
+  cursor: pointer !important;
+  font-size: 12px !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+/* One-bite warning */
+.mva-one-bite-warning {
+  padding: 13px 16px !important;
+  background: rgba(141, 28, 52, 0.06) !important;
+  border: 1px solid rgba(141, 28, 52, 0.2) !important;
+  border-radius: 10px !important;
+  margin-bottom: 20px !important;
+}
+
+.mva-one-bite-title {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: #8D1C34 !important;
+  margin-bottom: 4px !important;
+}
+
+.mva-one-bite-desc {
+  font-size: 13px !important;
+  color: #64748b !important;
+}
+
+/* Range grid */
+.mva-range-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr !important;
+  gap: 14px !important;
+  margin-bottom: 26px !important;
+}
+
+.mva-range-card {
+  padding: 18px !important;
+  border-radius: 12px !important;
+  border: 1px solid #e2e8f0 !important;
+  background: #f8f9fc !important;
+  text-align: center !important;
+}
+
+.mva-range-card.highlight {
+  border-color: rgba(141, 28, 52, 0.4) !important;
+  background: rgba(141, 28, 52, 0.06) !important;
+}
+
+.mva-range-card-label {
+  font-size: 10px !important;
+  color: #94a3b8 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 8px !important;
+}
+
+.mva-range-card-value {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 22px !important;
+  font-weight: 800 !important;
+}
+
+.mva-range-card-sub {
+  font-size: 10px !important;
+  color: #94a3b8 !important;
+  margin-top: 5px !important;
+}
+
+/* Breakdown table */
+.mva-breakdown {
+  border-top: 1px solid #e2e8f0 !important;
+  padding-top: 20px !important;
+  margin-top: 4px !important;
+}
+
+.mva-breakdown-title {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: #94a3b8 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 14px !important;
+}
+
+.mva-breakdown-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  padding: 9px 0 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  font-size: 13px !important;
+}
+
+.mva-breakdown-row span:first-child {
+  color: #64748b !important;
+}
+
+.mva-breakdown-row span:last-child {
+  color: #1e293b !important;
+  font-weight: 600 !important;
+}
+
+.mva-breakdown-row.total span {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #1e293b !important;
+}
+
+/* Punitive damages box */
+.mva-punitive-box {
+  margin-top: 16px !important;
+  padding: 13px 15px !important;
+  border-radius: 10px !important;
+  border: 1px solid !important;
+}
+
+.mva-punitive-no {
+  background: rgba(100, 116, 139, 0.05) !important;
+  border-color: #e2e8f0 !important;
+}
+
+.mva-punitive-limited {
+  background: rgba(245, 158, 11, 0.06) !important;
+  border-color: rgba(245, 158, 11, 0.3) !important;
+}
+
+.mva-punitive-yes {
+  background: rgba(37, 99, 235, 0.05) !important;
+  border-color: rgba(37, 99, 235, 0.2) !important;
+}
+
+.mva-punitive-title {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  margin-bottom: 4px !important;
+}
+
+.mva-punitive-no .mva-punitive-title {
+  color: #94a3b8 !important;
+}
+
+.mva-punitive-limited .mva-punitive-title {
+  color: #d97706 !important;
+}
+
+.mva-punitive-yes .mva-punitive-title {
+  color: #2563eb !important;
+}
+
+.mva-punitive-note {
+  font-size: 13px !important;
+  color: #64748b !important;
+}
+
+.mva-punitive-consult {
+  font-size: 12px !important;
+  color: #94a3b8 !important;
+  margin-top: 6px !important;
+}
+
+/* AI Analysis card */
+.mva-ai-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(141, 28, 52, 0.2) !important;
+  border-radius: 16px !important;
+  padding: 22px 28px !important;
+  margin-bottom: 20px !important;
+}
+
+.mva-ai-title {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #8D1C34 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 14px !important;
+}
+
+.mva-ai-loading {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  color: #94a3b8 !important;
+  font-size: 13px !important;
+}
+
+.mva-ai-text {
+  font-size: 14px !important;
+  color: #475569 !important;
+  line-height: 1.75 !important;
+  white-space: pre-wrap !important;
+}
+
+.mva-ai-error {
+  font-size: 12px !important;
+  color: #ef4444 !important;
+}
+
+/* Flags card */
+.mva-flags-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 16px !important;
+  padding: 22px 28px !important;
+}
+
+.mva-flags-title {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: #94a3b8 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 14px !important;
+}
+
+.mva-flag-item {
+  padding: 9px 12px !important;
+  background: #f1f5f9 !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+  margin-bottom: 7px !important;
+  font-size: 13px !important;
+  color: #64748b !important;
+}
+
+.mva-range-display {
+  text-align: center !important;
+  padding: 24px 16px !important;
+  margin-bottom: 26px !important;
+  background: rgba(141, 28, 52, 0.05) !important;
+  border: 1px solid rgba(141, 28, 52, 0.2) !important;
+  border-radius: 12px !important;
+}
+
+.mva-range-label {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: #94a3b8 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 10px !important;
+}
+
+.mva-range-value {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 32px !important;
+  font-weight: 800 !important;
+  color: #8D1C34 !important;
+  line-height: 1.2 !important;
+}
+
+.mva-range-to {
+  font-size: 20px !important;
+  font-weight: 400 !important;
+  color: #94a3b8 !important;
+}
+
+.mva-disclaimer-box {
+  margin-top: 14px !important;
+  padding: 13px 15px !important;
+  background: rgba(141, 28, 52, 0.04) !important;
+  border: 1px solid rgba(141, 28, 52, 0.12) !important;
+  border-radius: 10px !important;
+  font-size: 12px !important;
+  color: #94a3b8 !important;
+  line-height: 1.65 !important;
+}
+
+.mva-disclaimer-box strong {
+  color: #8D1C34 !important;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .mva-card {
+    padding: 20px 16px !important;
+  }
+
+  .mva-range-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .mva-header {
+    padding: 16px !important;
+    border-radius: 16px 16px 0 0 !important;
+  }
+
+  .mva-header-disclaimer {
+    display: none !important;
+  }
+
+  .mva-scar-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .mva-loc-analysis-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .mva-step-icon {
+    font-size: 20px !important;
+  }
+
+  .mva-step-label {
+    font-size: 11px !important;
+  }
+
+  .mva-step-btn {
+    padding: 10px 4px !important;
+  }
+
+  .mva-steps-arrow {
+    height: 58px !important;
+  }
+}
+
+@media (max-width: 479px) {
+  .mva-step-icon {
+    font-size: 22px !important;
+  }
+
+  .mva-step-label {
+    font-size: 12px !important;
+  }
+
+  .mva-step-btn {
+    padding: 10px 6px !important;
+  }
+}
