@@ -3,7 +3,7 @@
  * Plugin Name: Dog Bite Settlement Calculator
  * Plugin URI: https://pinderplotkin.com
  * Description: Multi-step Dog Bite & Animal Attack Settlement Calculator with AI-powered insurance analysis and GHL lead integration.
- * Version: 1.3.24.3    
+ * Version: 1.5.15.3  
  * Author: Julian Obando
  * Author URI: https://pinderplotkin.com
  * License: GPL v2 or later
