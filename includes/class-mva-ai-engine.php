@@ -31,7 +31,11 @@ class DBC_AI_Engine
             return false;
         }
 
-        $system_prompt = self::get_default_prompt();
+        // Use the prompt saved in WP Admin; fall back to the built-in default if empty
+        $system_prompt = get_option('dbc_system_prompt', '');
+        if (trim((string) $system_prompt) === '') {
+            $system_prompt = self::get_default_prompt();
+        }
         $case_summary  = $this->build_case_summary($form_data, $math_result);
 
         $body = array(
