@@ -36,6 +36,11 @@ class DBC_AI_Engine
         if (trim((string) $system_prompt) === '') {
             $system_prompt = self::get_default_prompt();
         }
+
+        // Spanish sites: keep the range line parseable
+        if (get_option('dbc_language', 'en') === 'es') {
+            $system_prompt .= "\n\nLANGUAGE: Write all explanatory text in Spanish (neutral Latin American Spanish). Keep the section headings exactly as shown in OUTPUT FORMAT and write the range line exactly as \"$[amount] to $[amount]\".";
+        }
         $case_summary  = $this->build_case_summary($form_data, $math_result);
 
         $body = array(
@@ -137,6 +142,11 @@ Respond ONLY with a valid JSON object, no markdown, no explanation, no extra tex
   "analysis": "<2-3 sentences explaining the insurance landscape and recovery strategy for this specific state and location>",
   "additionalDefendants": "<null or a short description of who else can be sued>"
 }';
+
+        // Spanish sites: the analysis text is shown to the visitor, so write it in Spanish
+        if (get_option('dbc_language', 'en') === 'es') {
+            $prompt .= "\n\nWrite the values of coverageLabel, typicalLimits, analysis and additionalDefendants in Spanish (neutral Latin American Spanish). Keep the JSON keys in English and keep recoveryRisk as exactly one of: low, medium, high.";
+        }
 
         $body = array(
             'model'    => $this->model,

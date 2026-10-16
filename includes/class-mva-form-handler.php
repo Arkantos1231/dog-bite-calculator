@@ -84,7 +84,7 @@ class DBC_Form_Handler
         $settlement_low  = 0;
         $settlement_high = 0;
         $settlement_range = '';
-        if ($ai_analysis && preg_match('/\$([0-9,]+)\s+to\s+\$([0-9,]+)/i', $ai_analysis, $m)) {
+        if ($ai_analysis && preg_match('/\$([0-9,]+)\s*(?:\s(?:to|a|hasta)\s|[-–—])\s*\$([0-9,]+)/iu', $ai_analysis, $m)) {
             $settlement_low   = (int) str_replace(',', '', $m[1]);
             $settlement_high  = (int) str_replace(',', '', $m[2]);
             $settlement_range = '$' . number_format($settlement_low) . ' to $' . number_format($settlement_high);
